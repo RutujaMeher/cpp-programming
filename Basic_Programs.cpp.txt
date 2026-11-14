@@ -1,0 +1,89 @@
+
+#include <iostream>
+using namespace std;
+
+// 1. Hello World
+void helloWorld() {
+    cout << "Hello World!" << endl;
+}
+
+// 2. Addition of Two Numbers
+void addition() {
+    int a = 10, b = 20;
+    cout << "Addition: " << a + b << endl;
+}
+
+// 3. User Input
+void userInput() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << "You entered: " << num << endl;
+}
+
+// 4. Even or Odd
+void evenOdd() {
+    int num = 7;
+
+    if (num % 2 == 0)
+        cout << "Even" << endl;
+    else
+        cout << "Odd" << endl;
+}
+
+// 5. Largest of Two Numbers
+void largestNumber() {
+    int a = 15, b = 25;
+
+    if (a > b)
+        cout << "A is largest" << endl;
+    else
+        cout << "B is largest" << endl;
+}
+
+// 6. Swap Two Numbers
+void swapNumbers() {
+    int a = 10, b = 20, temp;
+
+    temp = a;
+    a = b;
+    b = temp;
+
+    cout << "A = " << a << endl;
+    cout << "B = " << b << endl;
+}
+
+// 7. Multiplication Table
+void multiplicationTable() {
+    int num = 5;
+
+    for (int i = 1; i <= 10; i++) {
+        cout << num << " x " << i
+             << " = " << num * i << endl;
+    }
+}
+
+// 8. Factorial
+void factorial() {
+    int num = 5;
+    int fact = 1;
+
+    for (int i = 1; i <= num; i++) {
+        fact = fact * i;
+    }
+
+    cout << "Factorial: " << fact << endl;
+}
+
+int main() {
+    helloWorld();
+    addition();
+    userInput();
+    evenOdd();
+    largestNumber();
+    swapNumbers();
+    multiplicationTable();
+    factorial();
+
+    return 0;
+}
