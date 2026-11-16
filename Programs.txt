@@ -1,0 +1,329 @@
+
+#include <iostream>
+using namespace std;
+
+// 1. Largest of Three Numbers
+void largestOfThree() {
+    int a = 10, b = 25, c = 15;
+
+    if (a > b && a > c)
+        cout << "A is largest" << endl;
+    else if (b > c)
+        cout << "B is largest" << endl;
+    else
+        cout << "C is largest" << endl;
+}
+
+// 2. Positive, Negative or Zero
+void positiveNegative() {
+    int num = -5;
+
+    if (num > 0)
+        cout << "Positive" << endl;
+    else if (num < 0)
+        cout << "Negative" << endl;
+    else
+        cout << "Zero" << endl;
+}
+
+// 3. Leap Year
+void leapYear() {
+    int year = 2024;
+
+    if ((year % 400 == 0) ||
+        (year % 4 == 0 && year % 100 != 0))
+        cout << "Leap Year" << endl;
+    else
+        cout << "Not Leap Year" << endl;
+}
+
+// 4. Vowel or Consonant
+void vowelConsonant() {
+    char ch = 'a';
+
+    if (ch == 'a' || ch == 'e' || ch == 'i' ||
+        ch == 'o' || ch == 'u' || ch == 'A' ||
+        ch == 'E' || ch == 'I' || ch == 'O' ||
+        ch == 'U')
+        cout << "Vowel" << endl;
+    else
+        cout << "Consonant" << endl;
+}
+
+// 5. Calculator Using Switch
+void calculator() {
+    int a = 10, b = 5;
+    char op = '*';
+
+    switch (op) {
+        case '+':
+            cout << a + b << endl;
+            break;
+
+        case '-':
+            cout << a - b << endl;
+            break;
+
+        case '*':
+            cout << a * b << endl;
+            break;
+
+        case '/':
+            cout << a / b << endl;
+            break;
+
+        default:
+            cout << "Invalid Operator" << endl;
+    }
+}
+
+// 6. Reverse a Number
+void reverseNumber() {
+    int num = 1234;
+    int rev = 0;
+
+    while (num > 0) {
+        int digit = num % 10;
+        rev = rev * 10 + digit;
+        num = num / 10;
+    }
+
+    cout << "Reverse: " << rev << endl;
+}
+
+// 7. Palindrome Number
+void palindromeNumber() {
+    int num = 121;
+    int original = num;
+    int rev = 0;
+
+    while (num > 0) {
+        int digit = num % 10;
+        rev = rev * 10 + digit;
+        num = num / 10;
+    }
+
+    if (original == rev)
+        cout << "Palindrome" << endl;
+    else
+        cout << "Not Palindrome" << endl;
+}
+
+// 8. Armstrong Number
+void armstrongNumber() {
+    int num = 153;
+    int original = num;
+    int sum = 0;
+
+    while (num > 0) {
+        int digit = num % 10;
+        sum = sum + digit * digit * digit;
+        num = num / 10;
+    }
+
+    if (sum == original)
+        cout << "Armstrong Number" << endl;
+    else
+        cout << "Not Armstrong" << endl;
+}
+
+// 9. Prime Number
+void primeNumber() {
+    int num = 7;
+    bool prime = true;
+
+    if (num <= 1)
+        prime = false;
+
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            prime = false;
+            break;
+        }
+    }
+
+    if (prime)
+        cout << "Prime Number" << endl;
+    else
+        cout << "Not Prime" << endl;
+}
+
+// 10. Fibonacci Series
+void fibonacci() {
+    int a = 0, b = 1;
+
+    for (int i = 1; i <= 8; i++) {
+        cout << a << " ";
+
+        int next = a + b;
+        a = b;
+        b = next;
+    }
+
+    cout << endl;
+}
+
+// 11. Sum of Digits
+void sumOfDigits() {
+    int num = 1234;
+    int sum = 0;
+
+    while (num > 0) {
+        int digit = num % 10;
+        sum = sum + digit;
+        num = num / 10;
+    }
+
+    cout << "Sum: " << sum << endl;
+}
+
+// 12. Count Digits
+void countDigits() {
+    int num = 12345;
+    int count = 0;
+
+    while (num > 0) {
+        count++;
+        num = num / 10;
+    }
+
+    cout << "Count: " << count << endl;
+}
+
+// 13. Star Pattern
+void starPattern() {
+    for (int i = 1; i <= 5; i++) {
+        for (int j = 1; j <= i; j++) {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
+
+// 14. Number Pattern
+void numberPattern() {
+    for (int i = 1; i <= 5; i++) {
+        for (int j = 1; j <= i; j++) {
+            cout << j;
+        }
+        cout << endl;
+    }
+}
+
+// 15. Inverted Star Pattern
+void invertedPattern() {
+    for (int i = 5; i >= 1; i--) {
+        for (int j = 1; j <= i; j++) {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
+
+// 16. Sum of Array Elements
+void arraySum() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int sum = 0;
+
+    for (int i = 0; i < 5; i++) {
+        sum = sum + arr[i];
+    }
+
+    cout << "Array Sum: " << sum << endl;
+}
+
+// 17. Largest Element in Array
+void largestArrayElement() {
+    int arr[] = {10, 50, 20, 80, 30};
+    int largest = arr[0];
+
+    for (int i = 1; i < 5; i++) {
+        if (arr[i] > largest) {
+            largest = arr[i];
+        }
+    }
+
+    cout << "Largest Element: " << largest << endl;
+}
+
+// 18. Reverse an Array
+void reverseArray() {
+    int arr[] = {10, 20, 30, 40, 50};
+
+    int start = 0;
+    int end = 4;
+
+    while (start < end) {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+
+        start++;
+        end--;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        cout << arr[i] << " ";
+    }
+
+    cout << endl;
+}
+
+// 19. Linear Search
+void linearSearch() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int key = 30;
+    bool found = false;
+
+    for (int i = 0; i < 5; i++) {
+        if (arr[i] == key) {
+            found = true;
+            cout << "Found at index: " << i << endl;
+            break;
+        }
+    }
+
+    if (!found)
+        cout << "Not Found" << endl;
+}
+
+// 20. Square Using Function
+int square(int num) {
+    return num * num;
+}
+
+void callSquare() {
+    int result = square(5);
+    cout << "Square: " << result << endl;
+}
+
+// MAIN FUNCTION
+int main() {
+
+    largestOfThree();
+    positiveNegative();
+    leapYear();
+    vowelConsonant();
+    calculator();
+
+    reverseNumber();
+    palindromeNumber();
+    armstrongNumber();
+    primeNumber();
+    fibonacci();
+    sumOfDigits();
+    countDigits();
+
+    starPattern();
+    numberPattern();
+    invertedPattern();
+
+    arraySum();
+    largestArrayElement();
+    reverseArray();
+    linearSearch();
+
+    callSquare();
+
+    return 0;
+}
