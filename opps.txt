@@ -1,0 +1,578 @@
+1. Class and Object
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int age;
+
+    void display() {
+        cout << name << " " << age << endl;
+    }
+};
+
+int main() {
+    Student s1;
+    s1.name = "Rahul";
+    s1.age = 21;
+
+    s1.display();
+    return 0;
+}
+
+
+2. Encapsulation
+#include <iostream>
+using namespace std;
+
+class Bank {
+private:
+    int balance;
+
+public:
+    void setBalance(int b) {
+        balance = b;
+    }
+
+    int getBalance() {
+        return balance;
+    }
+};
+
+int main() {
+    Bank b;
+    b.setBalance(5000);
+    cout << b.getBalance();
+    return 0;
+}
+
+
+3. Abstraction
+#include <iostream>
+using namespace std;
+
+class ATM {
+public:
+    void withdraw() {
+        cout << "Withdrawal successful";
+    }
+};
+
+int main() {
+    ATM a;
+    a.withdraw();
+    return 0;
+}
+
+
+4. Single Inheritance
+#include <iostream>
+using namespace std;
+
+class Parent {
+public:
+    void display() {
+        cout << "Parent Class";
+    }
+};
+
+class Child : public Parent {
+};
+
+int main() {
+    Child c;
+    c.display();
+    return 0;
+}
+
+
+5. Multilevel Inheritance
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    void showA() {
+        cout << "Class A" << endl;
+    }
+};
+
+class B : public A {
+public:
+    void showB() {
+        cout << "Class B" << endl;
+    }
+};
+
+class C : public B {
+public:
+    void showC() {
+        cout << "Class C" << endl;
+    }
+};
+
+int main() {
+    C obj;
+    obj.showA();
+    obj.showB();
+    obj.showC();
+    return 0;
+}
+
+
+6. Multiple Inheritance
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    void showA() {
+        cout << "Class A" << endl;
+    }
+};
+
+class B {
+public:
+    void showB() {
+        cout << "Class B" << endl;
+    }
+};
+
+class C : public A, public B {
+};
+
+int main() {
+    C obj;
+    obj.showA();
+    obj.showB();
+    return 0;
+}
+
+
+7. Hierarchical Inheritance
+#include <iostream>
+using namespace std;
+
+class Parent {
+public:
+    void display() {
+        cout << "Parent Class" << endl;
+    }
+};
+
+class Child1 : public Parent {
+};
+
+class Child2 : public Parent {
+};
+
+int main() {
+    Child1 c1;
+    Child2 c2;
+
+    c1.display();
+    c2.display();
+
+    return 0;
+}
+
+
+8. Hybrid Inheritance
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    void show() {
+        cout << "Class A" << endl;
+    }
+};
+
+class B : public A {
+};
+
+class C {
+public:
+    void display() {
+        cout << "Class C" << endl;
+    }
+};
+
+class D : public B, public C {
+};
+
+int main() {
+    D obj;
+    obj.show();
+    obj.display();
+    return 0;
+}
+
+
+9. Constructor
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    Student() {
+        cout << "Default Constructor";
+    }
+};
+
+int main() {
+    Student s;
+    return 0;
+}
+
+
+10. Parameterized Constructor
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    int id;
+
+    Student(int x) {
+        id = x;
+    }
+
+    void display() {
+        cout << id;
+    }
+};
+
+int main() {
+    Student s(101);
+    s.display();
+    return 0;
+}
+
+
+11. Copy Constructor
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    int id;
+
+    Student(int x) {
+        id = x;
+    }
+
+    Student(const Student &s) {
+        id = s.id;
+    }
+
+    void display() {
+        cout << id;
+    }
+};
+
+int main() {
+    Student s1(101);
+    Student s2(s1);
+
+    s2.display();
+    return 0;
+}
+
+
+12. Destructor
+#include <iostream>
+using namespace std;
+
+class Demo {
+public:
+    Demo() {
+        cout << "Constructor Called" << endl;
+    }
+
+    ~Demo() {
+        cout << "Destructor Called" << endl;
+    }
+};
+
+int main() {
+    Demo d;
+    return 0;
+}
+
+
+13. Function Overloading
+#include <iostream>
+using namespace std;
+
+class Calculator {
+public:
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+};
+
+int main() {
+    Calculator c;
+
+    cout << c.add(10, 20) << endl;
+    cout << c.add(10.5, 20.5) << endl;
+    cout << c.add(10, 20, 30);
+
+    return 0;
+}
+
+
+14. Operator Overloading
+#include <iostream>
+using namespace std;
+
+class Number {
+public:
+    int value;
+
+    Number(int x) {
+        value = x;
+    }
+
+    Number operator+(Number obj) {
+        return Number(value + obj.value);
+    }
+};
+
+int main() {
+    Number n1(10), n2(20);
+    Number n3 = n1 + n2;
+
+    cout << n3.value;
+    return 0;
+}
+
+
+15. Function Overriding
+#include <iostream>
+using namespace std;
+
+class Parent {
+public:
+    void display() {
+        cout << "Parent Class";
+    }
+};
+
+class Child : public Parent {
+public:
+    void display() {
+        cout << "Child Class";
+    }
+};
+
+int main() {
+    Child c;
+    c.display();
+    return 0;
+}
+
+
+16. Virtual Function
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    virtual void display() {
+        cout << "Base Class";
+    }
+};
+
+class Derived : public Base {
+public:
+    void display() override {
+        cout << "Derived Class";
+    }
+};
+
+int main() {
+    Base *ptr;
+    Derived d;
+
+    ptr = &d;
+    ptr->display();
+
+    return 0;
+}
+
+
+17. Pure Virtual Function
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual void area() = 0;
+};
+
+class Circle : public Shape {
+public:
+    void area() override {
+        cout << "Area of Circle";
+    }
+};
+
+int main() {
+    Circle c;
+    c.area();
+    return 0;
+}
+
+
+18. Friend Function
+#include <iostream>
+using namespace std;
+
+class Demo {
+private:
+    int value = 100;
+
+public:
+    friend void display(Demo d);
+};
+
+void display(Demo d) {
+    cout << d.value;
+}
+
+int main() {
+    Demo d;
+    display(d);
+    return 0;
+}
+
+
+19. Static Data Member
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    static int count;
+
+    Student() {
+        count++;
+    }
+};
+
+int Student::count = 0;
+
+int main() {
+    Student s1, s2, s3;
+
+    cout << Student::count;
+    return 0;
+}
+
+
+20. This Pointer
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    int id;
+
+    Student(int id) {
+        this->id = id;
+    }
+
+    void display() {
+        cout << this->id;
+    }
+};
+
+int main() {
+    Student s(101);
+    s.display();
+    return 0;
+}
+
+
+21. Dynamic Object Creation
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    void display() {
+        cout << "Student Object";
+    }
+};
+
+int main() {
+    Student *ptr = new Student();
+
+    ptr->display();
+
+    delete ptr;
+    return 0;
+}
+
+
+22. Virtual Destructor
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    virtual ~Base() {
+        cout << "Base Destructor" << endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    ~Derived() {
+        cout << "Derived Destructor" << endl;
+    }
+};
+
+int main() {
+    Base *ptr = new Derived();
+
+    delete ptr;
+    return 0;
+}
+
+
+23. Diamond Problem (Virtual Inheritance)
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    int value = 100;
+};
+
+class B : virtual public A {
+};
+
+class C : virtual public A {
+};
+
+class D : public B, public C {
+};
+
+int main() {
+    D obj;
+
+    cout << obj.value;
+    return 0;
+}
