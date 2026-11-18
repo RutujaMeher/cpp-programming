@@ -1,0 +1,281 @@
+1. Create and Write a File
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream fout("data.txt");
+
+    fout << "Hello World";
+    fout.close();
+
+    return 0;
+}
+
+
+2. Read a File
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream fin("data.txt");
+
+    string line;
+    while (getline(fin, line)) {
+        cout << line << endl;
+    }
+
+    fin.close();
+    return 0;
+}
+
+
+3. Append Data to a File
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream fout("data.txt", ios::app);
+
+    fout << "\nNew Data";
+    fout.close();
+
+    return 0;
+}
+
+
+4. Read Character by Character
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream fin("data.txt");
+
+    char ch;
+    while (fin.get(ch)) {
+        cout << ch;
+    }
+
+    fin.close();
+    return 0;
+}
+
+
+5. Write Multiple Lines
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream fout("data.txt");
+
+    fout << "First Line\n";
+    fout << "Second Line\n";
+    fout << "Third Line\n";
+
+    fout.close();
+    return 0;
+}
+
+
+6. Read Word by Word
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream fin("data.txt");
+
+    string word;
+    while (fin >> word) {
+        cout << word << endl;
+    }
+
+    fin.close();
+    return 0;
+}
+
+
+7. Check Whether File Exists / Opened Successfully
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream fin("data.txt");
+
+    if (fin.is_open()) {
+        cout << "File opened successfully";
+    } else {
+        cout << "File not found";
+    }
+
+    fin.close();
+    return 0;
+}
+
+
+8. Read and Write Using fstream
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    fstream file;
+
+    file.open("data.txt", ios::in | ios::out | ios::trunc);
+
+    file << "C++ File Handling";
+
+    file.seekg(0);
+
+    string line;
+    getline(file, line);
+
+    cout << line;
+
+    file.close();
+    return 0;
+}
+
+
+9. Count Characters in a File
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream fin("data.txt");
+
+    char ch;
+    int count = 0;
+
+    while (fin.get(ch)) {
+        count++;
+    }
+
+    cout << "Characters: " << count;
+
+    fin.close();
+    return 0;
+}
+
+
+10. Count Lines in a File
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream fin("data.txt");
+
+    string line;
+    int count = 0;
+
+    while (getline(fin, line)) {
+        count++;
+    }
+
+    cout << "Lines: " << count;
+
+    fin.close();
+    return 0;
+}
+
+
+11. Copy One File into Another
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream fin("data.txt");
+    ofstream fout("copy.txt");
+
+    char ch;
+
+    while (fin.get(ch)) {
+        fout.put(ch);
+    }
+
+    fin.close();
+    fout.close();
+
+    return 0;
+}
+
+
+12. Delete a File
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+int main() {
+    if (remove("data.txt") == 0) {
+        cout << "File deleted";
+    } else {
+        cout << "Unable to delete file";
+    }
+
+    return 0;
+}
+
+
+13. Rename a File
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+int main() {
+    if (rename("data.txt", "newdata.txt") == 0) {
+        cout << "File renamed";
+    } else {
+        cout << "Rename failed";
+    }
+
+    return 0;
+}
+
+
+14. Write and Read Integer Data
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream fout("number.txt");
+    fout << 100;
+    fout.close();
+
+    ifstream fin("number.txt");
+
+    int num;
+    fin >> num;
+
+    cout << num;
+
+    fin.close();
+    return 0;
+}
+
+
+15. Check End of File Using eof()
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream fin("data.txt");
+
+    string line;
+
+    while (getline(fin, line)) {
+        cout << line << endl;
+    }
+
+    fin.close();
+    return 0;
+}
