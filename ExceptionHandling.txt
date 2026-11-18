@@ -1,0 +1,296 @@
+C++ Exception Handling Programs
+1. Basic Exception Handling
+#include <iostream>
+using namespace std;
+
+int main() {
+    try {
+        throw 10;
+    }
+    catch (int e) {
+        cout << "Exception: " << e;
+    }
+    return 0;
+}
+
+
+2. Division by Zero
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 10, b = 0;
+
+    try {
+        if (b == 0)
+            throw b;
+
+        cout << a / b;
+    }
+    catch (int e) {
+        cout << "Division by zero not allowed";
+    }
+
+    return 0;
+}
+
+
+3. Multiple Catch Blocks
+#include <iostream>
+using namespace std;
+
+int main() {
+    try {
+        throw 10.5;
+    }
+    catch (int e) {
+        cout << "Integer Exception";
+    }
+    catch (double e) {
+        cout << "Double Exception";
+    }
+    catch (char e) {
+        cout << "Character Exception";
+    }
+
+    return 0;
+}
+
+
+4. Catch All Handler
+#include <iostream>
+using namespace std;
+
+int main() {
+    try {
+        throw "Hello";
+    }
+    catch (...) {
+        cout << "Unknown Exception";
+    }
+
+    return 0;
+}
+
+
+5. Exception Propagation
+#include <iostream>
+using namespace std;
+
+void display() {
+    throw 100;
+}
+
+int main() {
+    try {
+        display();
+    }
+    catch (int e) {
+        cout << "Caught: " << e;
+    }
+
+    return 0;
+}
+
+
+6. Nested Try-Catch
+#include <iostream>
+using namespace std;
+
+int main() {
+    try {
+        try {
+            throw 10;
+        }
+        catch (int e) {
+            cout << "Inner Catch ";
+            throw;
+        }
+    }
+    catch (int e) {
+        cout << "Outer Catch";
+    }
+
+    return 0;
+}
+
+
+7. Rethrowing Exception
+#include <iostream>
+using namespace std;
+
+int main() {
+    try {
+        try {
+            throw 50;
+        }
+        catch (int e) {
+            cout << "First Catch ";
+            throw;
+        }
+    }
+    catch (int e) {
+        cout << "Second Catch";
+    }
+
+    return 0;
+}
+
+
+8. User Defined Exception
+#include <iostream>
+using namespace std;
+
+class MyException {
+};
+
+int main() {
+    try {
+        throw MyException();
+    }
+    catch (MyException e) {
+        cout << "User Defined Exception";
+    }
+
+    return 0;
+}
+
+
+9. Exception Using Class
+#include <iostream>
+using namespace std;
+
+class AgeException {
+public:
+    const char* what() {
+        return "Invalid Age";
+    }
+};
+
+int main() {
+    int age = 15;
+
+    try {
+        if (age < 18)
+            throw AgeException();
+    }
+    catch (AgeException e) {
+        cout << e.what();
+    }
+
+    return 0;
+}
+
+
+10. Standard Exception – out_of_range
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {10, 20, 30};
+
+    try {
+        cout << v.at(10);
+    }
+    catch (const out_of_range& e) {
+        cout << e.what();
+    }
+
+    return 0;
+}
+
+
+11. Standard Exception – invalid_argument
+#include <iostream>
+#include <stdexcept>
+using namespace std;
+
+int main() {
+    try {
+        throw invalid_argument("Invalid Input");
+    }
+    catch (const invalid_argument& e) {
+        cout << e.what();
+    }
+
+    return 0;
+}
+
+
+12. Exception with Inheritance
+#include <iostream>
+using namespace std;
+
+class Base {
+};
+
+class Derived : public Base {
+};
+
+int main() {
+    try {
+        throw Derived();
+    }
+    catch (Derived e) {
+        cout << "Derived Exception";
+    }
+    catch (Base e) {
+        cout << "Base Exception";
+    }
+
+    return 0;
+}
+
+
+13. Exception in Function
+#include <iostream>
+using namespace std;
+
+void check(int n) {
+    if (n < 0)
+        throw n;
+
+    cout << "Valid Number";
+}
+
+int main() {
+    try {
+        check(-5);
+    }
+    catch (int e) {
+        cout << "Invalid Number: " << e;
+    }
+
+    return 0;
+}
+
+
+14. Exception in Constructor
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    Student(int age) {
+        if (age < 18)
+            throw age;
+
+        cout << "Valid Student";
+    }
+};
+
+int main() {
+    try {
+        Student s(15);
+    }
+    catch (int e) {
+        cout << "Invalid Age: " << e;
+    }
+
+    return 0;
+}
+
+
+
+  
