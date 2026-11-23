@@ -1,0 +1,53 @@
+
+#include <iostream>
+using namespace std;
+
+void swapNumbers(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main()
+{
+    // Basic Pointer
+    int num = 100;
+    int *ptr = &num;
+
+    cout << "Value: " << num << endl;
+    cout << "Address: " << ptr << endl;
+    cout << "Value using Pointer: " << *ptr << endl;
+
+    // Swapping using Pointers
+    int a = 10, b = 20;
+
+    cout << "\nBefore Swapping: " << a << " " << b << endl;
+
+    swapNumbers(&a, &b);
+
+    cout << "After Swapping: " << a << " " << b << endl;
+
+    // Pointer with Array
+    int arr[] = {10, 20, 30, 40, 50};
+    int *p = arr;
+
+    cout << "\nArray Elements: ";
+
+    for (int i = 0; i < 5; i++)
+    {
+        cout << *(p + i) << " ";
+    }
+
+    // Dynamic Memory Allocation
+    int *dynamicPtr = new int;
+
+    *dynamicPtr = 500;
+
+    cout << "\n\nDynamic Memory Value: " << *dynamicPtr << endl;
+
+    delete dynamicPtr;
+    dynamicPtr = nullptr;
+
+    return 0;
+}
